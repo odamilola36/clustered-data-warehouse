@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  app:
+    image: 'data-warehouse'
+    build:
+      context: .
+    container_name: app
+    networks:
+      - app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    networks:
+      - app
+    environment:
+      - POSTGRES_USER=progress
+      - POSTGRES_PASSWORD=qwertyuiop
+    ports:
+      - "5432:5432"
+
+networks:
+  app:
