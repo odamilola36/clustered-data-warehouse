@@ -3,7 +3,6 @@ package com.lomari.clustereddatawarehouse.service.validator;
 import com.lomari.clustereddatawarehouse.dto.DealRequestDto;
 import com.lomari.clustereddatawarehouse.models.Deal;
 import com.lomari.clustereddatawarehouse.repository.DealsRepository;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
