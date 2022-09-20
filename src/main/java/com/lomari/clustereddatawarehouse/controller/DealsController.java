@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import static com.lomari.clustereddatawarehouse.dto.ApiUtils.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 @RequestMapping("/api/deals")
 @RestController
@@ -30,13 +29,13 @@ public class DealsController {
     public ResponseEntity<ApiResponse> saveDeal(@RequestBody DealRequestDto requestDto, HttpServletRequest req){
         log.info("request {} from {}", requestDto, req.getRemoteAddr());
         DealResponseDto dealResponseDto = dealsService.saveDeal(requestDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(buildApiResponse(dealResponseDto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(buildApiResponse(dealResponseDto, HttpStatus.CREATED));
     }
 
     @GetMapping("/{dealId}")
     public ResponseEntity<ApiResponse> getDeal(@PathVariable String dealId){
         log.info("get request from {}", dealId);
         DealResponseDto deal = dealsService.getDeal(dealId);
-        return ResponseEntity.status(HttpStatus.OK).body(buildApiResponse(deal));
+        return ResponseEntity.status(HttpStatus.OK).body(buildApiResponse(deal, HttpStatus.OK));
     }
 }

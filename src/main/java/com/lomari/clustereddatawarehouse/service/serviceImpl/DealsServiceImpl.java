@@ -3,12 +3,14 @@ package com.lomari.clustereddatawarehouse.service.serviceImpl;
 import com.lomari.clustereddatawarehouse.dto.DealRequestDto;
 import com.lomari.clustereddatawarehouse.dto.DealResponseDto;
 import com.lomari.clustereddatawarehouse.exceptions.InvalidRequestFieldException;
+import com.lomari.clustereddatawarehouse.exceptions.ResourceNotFoundException;
 import com.lomari.clustereddatawarehouse.models.Deal;
 import com.lomari.clustereddatawarehouse.repository.DealsRepository;
 import com.lomari.clustereddatawarehouse.service.DealsService;
 import com.lomari.clustereddatawarehouse.service.mapper.DealMapper;
 import com.lomari.clustereddatawarehouse.service.validator.DealError;
 import com.lomari.clustereddatawarehouse.service.validator.DealValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,7 +51,7 @@ public class DealsServiceImpl implements DealsService {
     public DealResponseDto getDeal(String dealUniqueId) {
         Optional<Deal> deal = dealsRepository.findByDealUniqueId(dealUniqueId);
         if (deal.isEmpty())
-            throw new InvalidRequestFieldException("Deal with id " + dealUniqueId + " does not exist", List.of());
+            throw new ResourceNotFoundException("Deal with id " + dealUniqueId + " does not exist");
         return dealMapper.dealToDealResponseDto(deal.get());
     }
 }

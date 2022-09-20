@@ -3,13 +3,17 @@ package com.lomari.clustereddatawarehouse.service.validator;
 import com.lomari.clustereddatawarehouse.dto.DealRequestDto;
 import com.lomari.clustereddatawarehouse.models.Deal;
 import com.lomari.clustereddatawarehouse.repository.DealsRepository;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.*;
 
 @Component
+@RequestScope
 public class DealValidator {
 
     private final DealsRepository dealsRepository;

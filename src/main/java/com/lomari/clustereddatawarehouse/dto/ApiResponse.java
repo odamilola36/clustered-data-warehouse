@@ -1,7 +1,6 @@
 package com.lomari.clustereddatawarehouse.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.lomari.clustereddatawarehouse.models.Deal;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lomari.clustereddatawarehouse.service.validator.DealError;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,12 +15,12 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiResponse {
     private String message;
     private HttpStatus status;
+//    private LocalDateTime dateTime; // TODO
     private Object data;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
-    private LocalDateTime localDateTime = LocalDateTime.now();
     private List<DealError> errorList;
     private String error;
 }

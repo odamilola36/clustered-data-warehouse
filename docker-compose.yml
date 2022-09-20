@@ -10,11 +10,12 @@ services:
       - app
     depends_on:
       - db
+    ports:
+      - "8090:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
-      - SPRING_DATASOURCE_USERNAME=compose-postgres
-      - SPRING_DATASOURCE_PASSWORD=compose-postgres
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/progress
+      - SPRING_DATASOURCE_USERNAME=progress
+      - SPRING_DATASOURCE_PASSWORD=qwertyuiop
 
   db:
     image: 'postgres:13.1-alpine'
@@ -24,6 +25,7 @@ services:
     environment:
       - POSTGRES_USER=progress
       - POSTGRES_PASSWORD=qwertyuiop
+      - POSTGRES_DATABASE=progress
     ports:
       - "5432:5432"
 

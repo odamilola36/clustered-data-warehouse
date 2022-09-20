@@ -10,11 +10,15 @@ management:
       exposure:
         include: ['configprops', 'env', 'health', 'info', 'loggers']
 
+
+#    url: ${SPRING_DATASOURCE_URL}:""
+#    username: ${SPRING_DATASOURCE_USERNAME}
+#    password: ${SPRING_DATASOURCE_PASSWORD}
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/data_warehouse
-    username: progress
-    password: qwertyuiop
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
   jpa:
     open-in-view: false
     properties:
@@ -24,6 +28,9 @@ spring:
       hibernate.order_updates: true
     hibernate:
       ddl-auto: update
+    hikari:
+      poolName: Hikari
+      auto-commit: false
 
 server:
   port: 8080
