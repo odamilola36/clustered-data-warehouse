@@ -3,17 +3,6 @@ logging:
     org.hibernate.SQL: DEBUG
     com.data.warehouse: DEBUG
 
-management:
-  endpoints:
-    web:
-      base-path: /management
-      exposure:
-        include: ['configprops', 'env', 'health', 'info', 'loggers']
-
-
-#    url: ${SPRING_DATASOURCE_URL}:""
-#    username: ${SPRING_DATASOURCE_USERNAME}
-#    password: ${SPRING_DATASOURCE_PASSWORD}
 spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL}
