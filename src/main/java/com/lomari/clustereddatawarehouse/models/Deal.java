@@ -21,7 +21,7 @@ public class Deal {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false, name = "deal_id")
+    @Column(nullable = false, name = "deal_id", unique = true)
     private String dealUniqueId;
 
     @Column(nullable = false, name = "ordering_currency")

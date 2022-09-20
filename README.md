@@ -1,6 +1,6 @@
-# Progress assessment
+# ProgressSoft assessment
 
-Progress soft assessment
+ProgressSoft assessment
 
 A simple rest api to takes in FX deal details and saves to DB
 
@@ -20,9 +20,9 @@ All URIs are relative to *http://localhost:8090*
 
 ### Data Api
 
-| Method     | HTTP request                    | Description | 
-|------------|---------------------------------|-------------|
-| [**Post**] | **Post** /api/deals/create_deal | save deal   |    
+| Method     | HTTP request               | Description | 
+|------------|----------------------------|-------------|
+| [**Post**] | **Post** /api/deals/create | save deal   |    
 
 ```json
 {
@@ -35,7 +35,7 @@ All URIs are relative to *http://localhost:8090*
 ```
 ```
 Response
-* Success: 201
+* Success: 2xx
 * Client error 4xx
 ```
 

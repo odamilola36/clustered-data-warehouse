@@ -50,9 +50,8 @@ public class DealsServiceImpl implements DealsService {
 
     @Override
     public DealResponseDto getDeal(String dealUniqueId) {
-        Optional<Deal> deal = dealsRepository.findByDealUniqueId(dealUniqueId);
-        if (deal.isEmpty())
-            throw new ResourceNotFoundException("Deal with id " + dealUniqueId + " does not exist");
-        return dealMapper.dealToDealResponseDto(deal.get());
+        Deal deal = dealsRepository.findByDealUniqueId(dealUniqueId)
+                .orElseThrow(() -> new ResourceNotFoundException("Deal with id " + dealUniqueId + " does not exist"));
+        return dealMapper.dealToDealResponseDto(deal);
     }
 }
