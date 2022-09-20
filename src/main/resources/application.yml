@@ -1,0 +1,37 @@
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    com.data.warehouse: DEBUG
+
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: ['configprops', 'env', 'health', 'info', 'loggers']
+
+
+#    url: ${SPRING_DATASOURCE_URL}:""
+#    username: ${SPRING_DATASOURCE_USERNAME}
+#    password: ${SPRING_DATASOURCE_PASSWORD}
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate.jdbc.time_zone: UTC
+      hibernate.jdbc.batch_size: 25
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+    hibernate:
+      ddl-auto: update
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+
+server:
+  port: 8080
+
