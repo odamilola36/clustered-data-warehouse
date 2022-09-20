@@ -9,7 +9,3 @@ build:
 
 stop:
 	docker-compose down
-
-test:
-	chmod 700 ./mvnw
-	./mvnw test

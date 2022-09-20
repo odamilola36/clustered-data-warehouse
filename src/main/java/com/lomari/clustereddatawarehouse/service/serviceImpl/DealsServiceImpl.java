@@ -10,13 +10,14 @@ import com.lomari.clustereddatawarehouse.service.DealsService;
 import com.lomari.clustereddatawarehouse.service.mapper.DealMapper;
 import com.lomari.clustereddatawarehouse.service.validator.DealError;
 import com.lomari.clustereddatawarehouse.service.validator.DealValidator;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class DealsServiceImpl implements DealsService {
 
     private final DealsRepository dealsRepository;
