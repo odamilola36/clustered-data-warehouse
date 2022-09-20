@@ -11,6 +11,7 @@ clone the [repository](https://github.com/odamilola36/clustered-data-warehouse.g
 * cd into ```clustered-data-warehouse```
 * run ```docker-compose up or make``` on the terminal (with docker installed)
 * the application runs on port ```8090```
+* swagger url is [swagger link](http://localhost:8090/swagger-ui/index.html)
 
 
 ## API Reference
@@ -35,7 +36,7 @@ All URIs are relative to *http://localhost:8090*
 ```
 ```
 Response
-* Success: 2xx
+* Success: 201
 * Client error 4xx
 ```
 
@@ -46,6 +47,6 @@ Response
 
 ```
 Response
-* Success: 201
+* Success: 200
 * Client error 4xx
 ```

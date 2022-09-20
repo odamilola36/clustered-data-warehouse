@@ -2,12 +2,9 @@ version: '2'
 
 services:
   app:
-    image: 'data-warehouse'
     build:
       context: .
     container_name: app
-    networks:
-      - app
     depends_on:
       - db
     ports:
@@ -20,14 +17,9 @@ services:
   db:
     image: 'postgres:13.1-alpine'
     container_name: db
-    networks:
-      - app
     environment:
       - POSTGRES_USER=progress
       - POSTGRES_PASSWORD=qwertyuiop
       - POSTGRES_DATABASE=progress
     ports:
       - "5432:5432"
-
-networks:
-  app:

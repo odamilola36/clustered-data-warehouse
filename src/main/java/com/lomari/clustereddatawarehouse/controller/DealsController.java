@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import static com.lomari.clustereddatawarehouse.dto.ApiUtils.*;
 
-import javax.servlet.http.HttpServletRequest;
 
 @RequestMapping("/api/deals")
 @RestController
